@@ -1,0 +1,227 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Madagascar | Awesome Installation</title>
+  <meta name="author" content="Nick">
+  
+  <meta name="description" content="与Seismic Unix类似，Madagascar也是一款地震数据处理软件，其开发者众多，内置的软件也非常多，缺点就是代码注释比较少，不容易懂。给的示例虽多，但也不容易懂，对于初学者而言十分困难。
+下载最新的Release版本：http://github.com/ahay/src.git
+安装依赖">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Madagascar"/>
+  <meta property="og:site_name" content="Awesome Installation"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  
+    <link rel="alternative" href="/awesome-installation/atom.xml" title="Awesome Installation" type="application/atom+xml">
+  
+  
+    <link href="/awesome-installation/favicon.png" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/awesome-installation/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/awesome-installation/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/awesome-installation/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/awesome-installation/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/awesome-installation/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/awesome-installation/css/responsive.css" media="screen" type="text/css">  
+  <link rel="stylesheet" href="/awesome-installation/css/sidenav.css" media="screen" type="text/css">  
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/awesome-installation/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+</head>
+
+<body id="body" data-spy="scroll" data-target=".toc">
+  <div class="container" id="container">
+	<div class="content">
+	  <div class="page-header">		
+  <h1><a class="brand" href="/awesome-installation/">Awesome Installation</a><span class="split"></span><span class="title">Madagascar</span><span class="date" id="title-date"><i class="fa fa-clock-o"></i> 2015-05-14</span></h1>
+</div>		
+
+<div class="row page">
+  <!-- cols -->	
+  
+  <div class="col-xs-12 col-sm-3 col-md-3 toc"> 
+	<!-- toc -->
+<script type="text/javascript">
+		jQuery(document).ready(function() {
+ 		   generateWikiTOC('.note', '.toc',  2 , 2 );
+		});
+</script>
+  </div><!-- col-md-3 -->
+  
+  
+
+  
+  <div class="col-xs-12 col-sm-9 col-md-9 note">
+	
+
+	  <!-- content -->
+	  <p>与Seismic Unix类似，Madagascar也是一款地震数据处理软件，其开发者众多，内置的软件也非常多，<br>缺点就是代码注释比较少，不容易懂。给的示例虽多，但也不容易懂，对于初学者而言十分困难。</p>
+<p>下载最新的Release版本：<a href="http://github.com/ahay/src.git" target="_blank" rel="noopener">http://github.com/ahay/src.git</a></p>
+<h2 id="安装依赖包"><a href="#安装依赖包" class="headerlink" title="安装依赖包"></a>安装依赖包</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"># 必须安装的依赖包</span><br><span class="line">$ sudo apt-get install libxaw7-dev</span><br><span class="line"># 建议安装的依赖包</span><br><span class="line">$ sudo apt-get install freeglut3-dev</span><br><span class="line">$ sudo apt-get install libnetpbm10-dev</span><br><span class="line">$ sudo apt-get install libgd-dev  </span><br><span class="line">$ sudo apt-get install libplplot-dev</span><br><span class="line">$ sudo apt-get install libavcodec-dev</span><br><span class="line">$ sudo apt-get install libcairo2-dev</span><br><span class="line">$ sudo apt-get install libjpeg-dev</span><br><span class="line">$ sudo apt-get install swig</span><br><span class="line">$ sudo apt-get install python-dev</span><br><span class="line">$ sudo apt-get install python-numpy</span><br><span class="line">$ sudo apt-get install g++</span><br><span class="line">$ sudo apt-get install gfortran</span><br><span class="line">$ sudo apt-get install libopenmpi-dev</span><br><span class="line">$ sudo apt-get install libfftw3-dev</span><br><span class="line">$ sudo apt-get install libsuitesparse-dev</span><br><span class="line"># 不建议安装的包</span><br><span class="line">$ sudo apt-get install python-epydoc</span><br></pre></td></tr></table></figure>
+<h2 id="编译，安装"><a href="#编译，安装" class="headerlink" title="编译，安装"></a>编译，安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https://github.com/ahay/src.git madagascar-2.0</span><br><span class="line">$ cd madagascar-2.0</span><br><span class="line">$ sudo ./configure API=c++,f90 --prefix=/opt/rsf2.0 # 额外安装C++，Fortran两个API</span><br><span class="line">$ sudo make</span><br><span class="line">$ sudo make install</span><br></pre></td></tr></table></figure>
+<h2 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h2><p>向<code>~/.bashrc</code>中加入如下语句以配置环境变量。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># Madagascar 2.0</span><br><span class="line">export RSFROOT=/opt/rsf2.0</span><br><span class="line">source $RSFROOT/share/madagascar/etc/env.sh</span><br></pre></td></tr></table></figure>
+<ul>
+<li>2016-05-22: 初稿；</li>
+<li>2017-07-18: 更新至madagascar2.0</li>
+</ul>
+	  
+
+	  <div>
+  		<center>
+		  <div class="pagination">
+<ul class="pagination">
+	
+	
+	
+	
+	
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+			
+		
+	
+		
+			
+		
+	
+		
+			
+		
+	
+		
+			
+		
+	
+		
+			
+		
+	
+		
+			
+		
+	
+		
+			
+		
+	
+		
+			
+		
+	
+		
+			
+			
+		
+	
+		
+			
+			
+			
+		
+			
+		
+	
+		
+			
+		
+	
+		
+	
+	
+	
+		<li class="prev"><a href="/awesome-installation/posts/obspy.html" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>prev</a></li>
+	
+	<li><a href="/awesome-installation/"><i class="fa fa-archive"></i>Home</a></li>
+	
+		<li class="next"><a href="/awesome-installation/posts/GMT.html" class="alignright next">next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+	
+</ul>
+</div>
+
+		</center>
+	  </div>
+	  
+	</div> <!-- col-md-9/col-md-12 -->
+	
+  </div><!-- row -->
+
+	</div>
+  </div>
+  <div class="container-narrow">
+	<footer> <p>
+  &copy; 2018 Nick
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-wixo/">Wixo</a>.    
+</p> </footer>
+  </div> <!-- container-narrow -->
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/awesome-installation/js/jquery.imagesloaded.min.js"></script>
+<script src="/awesome-installation/js/gallery.js"></script>
+<script src="/awesome-installation/js/bootstrap.min.js"></script>
+<script src="/awesome-installation/js/jquery.tableofcontents.min.js"></script>
+<script src="/awesome-installation/js/tocgenerator.min.js"></script>
+<script src="/awesome-installation/js/main.js"></script>
+<script src="/awesome-installation/js/search.js"></script> 
+
+
+
+
+<link rel="stylesheet" href="/awesome-installation/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/awesome-installation/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/awesome-installation/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+
+</body>
+</html>

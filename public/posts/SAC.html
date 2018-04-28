@@ -1,0 +1,291 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>SAC | Awesome Installation</title>
+  <meta name="author" content="Nick">
+  
+  <meta name="description" content="前言本文源于SeisMan开源项目SAC_Docs_zh
+申请SACSAC协议仅允许IRIS将SAC源码包及二进制包分发给地震学相关人员。所以想要从官方渠道获取SAC软件包，必须在 IRIS 网站上申请。
+SAC软件包申请地址：http://ds.iris.edu/ds/nodes/dmc/form">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="SAC"/>
+  <meta property="og:site_name" content="Awesome Installation"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  
+    <link rel="alternative" href="/awesome-installation/atom.xml" title="Awesome Installation" type="application/atom+xml">
+  
+  
+    <link href="/awesome-installation/favicon.png" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/awesome-installation/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/awesome-installation/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/awesome-installation/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/awesome-installation/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/awesome-installation/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/awesome-installation/css/responsive.css" media="screen" type="text/css">  
+  <link rel="stylesheet" href="/awesome-installation/css/sidenav.css" media="screen" type="text/css">  
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/awesome-installation/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+</head>
+
+<body id="body" data-spy="scroll" data-target=".toc">
+  <div class="container" id="container">
+	<div class="content">
+	  <div class="page-header">		
+  <h1><a class="brand" href="/awesome-installation/">Awesome Installation</a><span class="split"></span><span class="title">SAC</span><span class="date" id="title-date"><i class="fa fa-clock-o"></i> 2015-05-16</span></h1>
+</div>		
+
+<div class="row page">
+  <!-- cols -->	
+  
+  <div class="col-xs-12 col-sm-3 col-md-3 toc"> 
+	<!-- toc -->
+<script type="text/javascript">
+		jQuery(document).ready(function() {
+ 		   generateWikiTOC('.note', '.toc',  2 , 2 );
+		});
+</script>
+  </div><!-- col-md-3 -->
+  
+  
+
+  
+  <div class="col-xs-12 col-sm-9 col-md-9 note">
+	
+
+	  <!-- content -->
+	  <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本文源于<a href="http://seisman.info/" target="_blank" rel="noopener">SeisMan</a>开源项目<a href="https://github.com/seisman/SAC_Docs_zh" target="_blank" rel="noopener">SAC_Docs_zh</a></p>
+<h2 id="申请SAC"><a href="#申请SAC" class="headerlink" title="申请SAC"></a>申请SAC</h2><p>SAC协议仅允许IRIS将SAC源码包及二进制包分发给地震学相关人员。<br>所以想要从官方渠道获取SAC软件包，必须在 IRIS 网站上申请。</p>
+<p>SAC软件包申请地址：<a href="http://ds.iris.edu/ds/nodes/dmc/forms/sac/" target="_blank" rel="noopener">http://ds.iris.edu/ds/nodes/dmc/forms/sac/</a></p>
+<p>申请的过程中需要注意如下几点：</p>
+<ul>
+<li>认真填写个人信息，否则可能会被拒绝</li>
+<li>电子邮箱最好填写学术/单位邮箱（比如以 edu 结尾的邮箱），一般邮箱可能会被拒绝</li>
+<li>若无学术邮箱，则需要其他信息证明你是地震学相关人员</li>
+</ul>
+<p>IRIS提供了SAC最新版的源码包、Linux 64位下的二进制包和Mac OSX 64位下的<br>二进制包。其中，二进制包可以在相应的平台下直接使用，源代码包则需要编译<br>才能使用。具体申请那个包由用户的操作系统决定：</p>
+<ul>
+<li>Linux 64位系统可以申请源码包或Linux 64位包</li>
+<li>Mac OSX 64位系统可以申请源码包或Mac 64位包</li>
+<li>其他系统，如Linux 32位、Mac OSX 32位、Cygwin，申请源码包</li>
+</ul>
+<p>提交申请之后，需要人工审核，若审核通过，则IRIS会通过邮件将软件包<br>发送给你。一般审核时间为两到三个工作日。由于审核周期稍长，建议同时<br>申请64位二进制包和源码包。</p>
+<p>需要注意，SAC协议规定了用户没有分发SAC软件包的权利。所以，请勿将SAC<br>软件包在网络上公开。</p>
+<h2 id="在Linux下安装SAC"><a href="#在Linux下安装SAC" class="headerlink" title="在Linux下安装SAC"></a>在Linux下安装SAC</h2><p>Linux下安装SAC，可以直接使用官方提供的二进制包，也可以手动编译源码包。<br>对于大多数用户而言，建议安装二进制包。下面会分别介绍两种安装方法，要求<br>读者了解Linux的一些基本概念和操作。</p>
+<h3 id="安装二进制包"><a href="#安装二进制包" class="headerlink" title="安装二进制包"></a>安装二进制包</h3><h4 id="安装依赖包"><a href="#安装依赖包" class="headerlink" title="安装依赖包"></a>安装依赖包</h4><p>官方提供的二进制包中的可执行文件可以直接使用，在运行时需要用到几个动态<br>链接库。大部分Linux发行版下，都默认安装了这几个动态链接库。若不幸没有<br>安装或不确定有没有安装，可以通过如下命令安装所需的软件包。</p>
+<p>对于Ubuntu/Debian：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get update</span><br><span class="line">$ sudo apt-get install libc6 libsm6 libice6 libxpm4 libx11-6</span><br><span class="line">$ sudo apt-get install zlib1g libncurses5</span><br></pre></td></tr></table></figure>
+<p>对于CentOS/Fedora/RHEL：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo yum install glibc libSM libICE libXpm libX11</span><br><span class="line">$ sudo yum install zlib ncurses</span><br></pre></td></tr></table></figure>
+<h4 id="安装二进制包-1"><a href="#安装二进制包-1" class="headerlink" title="安装二进制包"></a>安装二进制包</h4><p>直接将官方提供的二进制包解压并移动到安装目录即可：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ tar -xvf sac-101.6a-linux_x86_64.tar.gz   # 解压</span><br><span class="line">$ sudo mv sac /usr/local                    # 安装</span><br></pre></td></tr></table></figure>
+<h3 id="编译源码"><a href="#编译源码" class="headerlink" title="编译源码"></a>编译源码</h3><h4 id="安装依赖包-1"><a href="#安装依赖包-1" class="headerlink" title="安装依赖包"></a>安装依赖包</h4><p>编译源码时需要安装若干软件包。</p>
+<p>对于Ubuntu/Debian系：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get update</span><br><span class="line">$ sudo apt-get install build-essential</span><br><span class="line">$ sudo apt-get install libncurses5-dev libsm-dev libice-dev</span><br><span class="line">$ sudo apt-get install libxpm-dev libx11-dev zlib1g-dev</span><br></pre></td></tr></table></figure>
+<p>对于CentOS/Fedora/RHEL系：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo yum install gcc gcc-c++ make</span><br><span class="line">$ sudo yum install glibc ncurses-devel libSM-devel libICE-devel</span><br><span class="line">$ sudo yum install libXpm-devel libX11-devel zlib-devel</span><br></pre></td></tr></table></figure>
+<h4 id="编译源码-1"><a href="#编译源码-1" class="headerlink" title="编译源码"></a>编译源码</h4><p>将源码按如下命令解压、配置、编译、安装：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ tar -xvf sac-101.6a_source.tar.gz</span><br><span class="line">$ cd sac-101.6a</span><br><span class="line">$ mkdir build</span><br><span class="line">$ cd build</span><br><span class="line">$ ../configure --prefix=/usr/local/sac</span><br><span class="line">$ make</span><br><span class="line">$ sudo make install</span><br></pre></td></tr></table></figure>
+<h3 id="配置变量"><a href="#配置变量" class="headerlink" title="配置变量"></a>配置变量</h3><p>向 <code>~/.bashrc</code> （某些发行版需要修改 <code>~/.bash_profile</code>） 中加入如下语句<br>以配置环境变量和SAC全局变量：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">export SACHOME=/usr/local/sac</span><br><span class="line">export SACAUX=$&#123;SACHOME&#125;/aux</span><br><span class="line">export PATH=$&#123;SACHOME&#125;/bin:$&#123;PATH&#125;</span><br><span class="line"></span><br><span class="line">export SAC_DISPLAY_COPYRIGHT=1</span><br><span class="line">export SAC_PPK_LARGE_CROSSHAIRS=1</span><br><span class="line">export SAC_USE_DATABASE=0</span><br></pre></td></tr></table></figure>
+<p>其中，</p>
+<ul>
+<li><code>SACHOME</code> 为SAC的安装目录</li>
+<li><code>SACAUX</code> 目录中包含了SAC运行所需的辅助文件</li>
+<li><code>PATH</code> 为Linux系统环境变量</li>
+<li><code>SAC_DISPLAY_COPYRIGHT</code> 用于控制是否在启动SAC时显示版本和版权<br>信息，一般设置为1。在脚本中多次调用SAC时会重复显示版本和版权信息，<br>干扰脚本的正常输出，因而在脚本中一般将其值设置为0。具体的设置方法<br>可以参考 <a href="/call-in-script">在脚本中调用SAC</a> 中的相关内容</li>
+<li><code>SAC_PPK_LARGE_CROSSHAIRS</code> 用于控制震相拾取过程中光标的大小， 在<br><a href="/data-process/picking-phase.md">震相拾取</a> 时会用到</li>
+<li><code>SAC_USE_DATABASE</code> 用于控制是否允许将SAC格式转换为GSE2.0格式，<br>一般用不到该特性，故而设置其值为0</li>
+</ul>
+<p>修改完 <code>~/.bashrc</code> 后，执行以下命令使配置的环境变量生效：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ source ~/.bashrc</span><br></pre></td></tr></table></figure>
+<h3 id="启动SAC"><a href="#启动SAC" class="headerlink" title="启动SAC"></a>启动SAC</h3><p>终端键入小写的 <code>sac</code>，显示 如下则表示SAC安装成功：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ sac</span><br><span class="line"> SEISMIC ANALYSIS CODE [11/11/2013 (Version 101.6a)]</span><br><span class="line"> Copyright 1995 Regents of the University of California</span><br><span class="line"></span><br><span class="line">SAC&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="在Mac下安装SAC"><a href="#在Mac下安装SAC" class="headerlink" title="在Mac下安装SAC"></a>在Mac下安装SAC</h2><p>本节介绍如何在Mac OS X 如何安装SAC。</p>
+<p>Mac下安装SAC，可以直接使用官方提供的二进制包，也可以手动编译源码包<br>（似乎在最新版本的 macOS 下手动编译的 SAC 无法使用，暂无解决办法）。<br>对于大多数用户而言，建议安装二进制包。下面会分别介绍两种安装方法。</p>
+<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>首先要安装Mac下的命令行工具。在终端执行如下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ xcode-select --install</span><br></pre></td></tr></table></figure>
+<p>即可。</p>
+<p>此外，还需要安装X11图形界面相关工具，即 XQuartz。可以直接到<br><a href="http://xquartz.macosforge.org/landing/" target="_blank" rel="noopener">XQuartz</a><br>下载dmg安装包并安装。对于 Homebrew 用户，可以使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ brew cask install xquartz</span><br></pre></td></tr></table></figure>
+<p>安装。</p>
+<h3 id="安装二进制包-2"><a href="#安装二进制包-2" class="headerlink" title="安装二进制包"></a>安装二进制包</h3><p>直接将官方的二进制包解压并移动到安装目录即可：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ tar -xvf sac-101.6a-mac_x86_64.tar.gz</span><br><span class="line">$ sudo mv sac /usr/local</span><br></pre></td></tr></table></figure>
+<h3 id="编译源码-2"><a href="#编译源码-2" class="headerlink" title="编译源码"></a>编译源码</h3><p>按照如下命令即可正确编译源码。需要注意的是，由于SAC默认使用的editline库<br>在Mac下无法正常编译，因而执行 <code>configure</code> 时使用了 <code>–enable-readline</code><br>选项使得SAC使用readline库而不是editline库。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ tar -xvf sac-101.6a_source.tar.gz</span><br><span class="line">$ cd sac-101.6a</span><br><span class="line">$ mkdir build</span><br><span class="line">$ cd build</span><br><span class="line">$ ../configure --prefix=/usr/local/sac --enable-readline</span><br><span class="line">$ make</span><br><span class="line">$ sudo make install</span><br></pre></td></tr></table></figure>
+<h3 id="配置变量-1"><a href="#配置变量-1" class="headerlink" title="配置变量"></a>配置变量</h3><p>向 <code>~/.bash_profile</code> 中加入如下语句以配置环境变量和SAC全局变量：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">export SACHOME=/usr/local/sac</span><br><span class="line">export SACAUX=$&#123;SACHOME&#125;/aux</span><br><span class="line">export PATH=$&#123;SACHOME&#125;/bin:$&#123;PATH&#125;</span><br><span class="line"></span><br><span class="line">export SAC_DISPLAY_COPYRIGHT=1</span><br><span class="line">export SAC_PPK_LARGE_CROSSHAIRS=1</span><br><span class="line">export SAC_USE_DATABASE=0</span><br></pre></td></tr></table></figure>
+<p>其中，</p>
+<ul>
+<li><code>SACHOME</code> 为SAC的安装目录</li>
+<li><code>SACAUX</code> 目录中包含了SAC运行所需的辅助文件</li>
+<li><code>PATH</code> 为Linux系统环境变量</li>
+<li><code>SAC_DISPLAY_COPYRIGHT</code> 用于控制是否在启动SAC时显示版本和版权<br>信息，一般设置为1。在脚本中多次调用SAC时会重复显示版本和版权信息，<br>干扰脚本的正常输出，因而在脚本中一般将其值设置为0。具体的设置方法<br>可以参考 <a href="/call-in-script">在脚本中调用SAC</a> 中的相关内容</li>
+<li><code>SAC_PPK_LARGE_CROSSHAIRS</code> 用于控制震相拾取过程中光标的大小， 在<br><a href="/data-process/picking-phase.md">震相拾取</a> 时会用到</li>
+<li><code>SAC_USE_DATABASE</code> 用于控制是否允许将SAC格式转换为GSE2.0格式，<br>一般用不到该特性，故而设置其值为0</li>
+</ul>
+<p>修改完 <code>~/.bash_profile</code> 后，执行以下命令使配置的环境变量生效：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ source ~/.bash_profile</span><br></pre></td></tr></table></figure>
+<h3 id="启动SAC-1"><a href="#启动SAC-1" class="headerlink" title="启动SAC"></a>启动SAC</h3><p>终端键入小写的 <code>sac</code>，显示如下则表示SAC安装成功：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ sac</span><br><span class="line"> SEISMIC ANALYSIS CODE [11/11/2013 (Version 101.6a)]</span><br><span class="line"> Copyright 1995 Regents of the University of California</span><br><span class="line"></span><br><span class="line">SAC&gt;</span><br></pre></td></tr></table></figure>
+	  
+
+	  <div>
+  		<center>
+		  <div class="pagination">
+<ul class="pagination">
+	
+	
+	
+	
+	
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+			
+		
+	
+		
+			
+		
+	
+		
+			
+		
+	
+		
+			
+		
+	
+		
+			
+		
+	
+		
+			
+		
+	
+		
+			
+			
+		
+	
+		
+			
+			
+			
+		
+			
+		
+	
+		
+			
+		
+	
+		
+			
+		
+	
+		
+			
+		
+	
+		
+	
+	
+	
+		<li class="prev"><a href="/awesome-installation/posts/seismic-unix.html" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>prev</a></li>
+	
+	<li><a href="/awesome-installation/"><i class="fa fa-archive"></i>Home</a></li>
+	
+		<li class="next"><a href="/awesome-installation/posts/obspy.html" class="alignright next">next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+	
+</ul>
+</div>
+
+		</center>
+	  </div>
+	  
+	</div> <!-- col-md-9/col-md-12 -->
+	
+  </div><!-- row -->
+
+	</div>
+  </div>
+  <div class="container-narrow">
+	<footer> <p>
+  &copy; 2018 Nick
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-wixo/">Wixo</a>.    
+</p> </footer>
+  </div> <!-- container-narrow -->
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/awesome-installation/js/jquery.imagesloaded.min.js"></script>
+<script src="/awesome-installation/js/gallery.js"></script>
+<script src="/awesome-installation/js/bootstrap.min.js"></script>
+<script src="/awesome-installation/js/jquery.tableofcontents.min.js"></script>
+<script src="/awesome-installation/js/tocgenerator.min.js"></script>
+<script src="/awesome-installation/js/main.js"></script>
+<script src="/awesome-installation/js/search.js"></script> 
+
+
+
+
+<link rel="stylesheet" href="/awesome-installation/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/awesome-installation/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/awesome-installation/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+
+</body>
+</html>

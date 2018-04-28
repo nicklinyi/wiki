@@ -1,0 +1,229 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>DENISE | Awesome Installation</title>
+  <meta name="author" content="Nick">
+  
+  <meta name="description" content="DENISE是一个KIT开发的用于全波形反演的软件。
+下载下载,需要上下面的网站去预留信息，然后开发者会在几小时内将软件发至你留的邮箱中。
+官网：http://www.gpi.kit.edu/Software-FWI.php
+安装DENISE的过程十分简单，开发者把脚本都写好了，只需要运行一下代码就">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="DENISE"/>
+  <meta property="og:site_name" content="Awesome Installation"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  
+    <link rel="alternative" href="/awesome-installation/atom.xml" title="Awesome Installation" type="application/atom+xml">
+  
+  
+    <link href="/awesome-installation/favicon.png" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/awesome-installation/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/awesome-installation/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/awesome-installation/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/awesome-installation/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/awesome-installation/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/awesome-installation/css/responsive.css" media="screen" type="text/css">  
+  <link rel="stylesheet" href="/awesome-installation/css/sidenav.css" media="screen" type="text/css">  
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/awesome-installation/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+</head>
+
+<body id="body" data-spy="scroll" data-target=".toc">
+  <div class="container" id="container">
+	<div class="content">
+	  <div class="page-header">		
+  <h1><a class="brand" href="/awesome-installation/">Awesome Installation</a><span class="split"></span><span class="title">DENISE</span><span class="date" id="title-date"><i class="fa fa-clock-o"></i> 2015-05-13</span></h1>
+</div>		
+
+<div class="row page">
+  <!-- cols -->	
+  
+  <div class="col-xs-12 col-sm-3 col-md-3 toc"> 
+	<!-- toc -->
+<script type="text/javascript">
+		jQuery(document).ready(function() {
+ 		   generateWikiTOC('.note', '.toc',  2 , 2 );
+		});
+</script>
+  </div><!-- col-md-3 -->
+  
+  
+
+  
+  <div class="col-xs-12 col-sm-9 col-md-9 note">
+	
+
+	  <!-- content -->
+	  <p>DENISE是一个KIT开发的用于全波形反演的软件。</p>
+<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>下载,需要上下面的网站去预留信息，然后开发者会在几小时内将软件发至你留的邮箱中。</p>
+<p>官网：<a href="http://www.gpi.kit.edu/Software-FWI.php" target="_blank" rel="noopener">http://www.gpi.kit.edu/Software-FWI.php</a></p>
+<p>安装DENISE的过程十分简单，开发者把脚本都写好了，只需要运行一下代码就可以编译成功了。</p>
+<h2 id="编译manual手册"><a href="#编译manual手册" class="headerlink" title="编译manual手册"></a>编译manual手册</h2><p>将下载的软件解压后，进入doc/目录下，运行<code>compile_LaTeX_manual.sh</code>编译manual文档，里边有一部分关于安装的说明。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ./compile_LaTeX_manual.sh</span><br></pre></td></tr></table></figure>
+<h2 id="安装依赖包"><a href="#安装依赖包" class="headerlink" title="安装依赖包"></a>安装依赖包</h2><p>安装依赖包文件需要进入par/目录下运行make，即可成功安装四个依赖包cseife，stfinv，aff，fourier.并编译整个软件包，这一点与根目录下的INSTALL文件不同，原INSTALL文件中说的compileLIBRARIES.sh在par/目录下根本不存在，因此整个编译过程应参考manual文档</p>
+<h3 id="Compilation"><a href="#Compilation" class="headerlink" title="Compilation"></a>Compilation</h3><p>由于源码含F77代码，需要指定F77的编译器，在contrib/下的<code>Makefile_var</code>文件中指定。可根据自己系统的f77编译器确定。笔者使用的gfortran.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># edit /DENISE-Release/contrib/Makefile_var</span><br><span class="line">FC=/usr/local/gfortran</span><br></pre></td></tr></table></figure>
+<p>修改完成之后，回到par/目下执行make即可编译整个程序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ make</span><br></pre></td></tr></table></figure>
+	  
+
+	  <div>
+  		<center>
+		  <div class="pagination">
+<ul class="pagination">
+	
+	
+	
+	
+	
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+			
+		
+	
+		
+			
+		
+	
+		
+			
+		
+	
+		
+			
+		
+	
+		
+			
+		
+	
+		
+			
+		
+	
+		
+			
+		
+	
+		
+			
+		
+	
+		
+			
+		
+	
+		
+			
+		
+	
+		
+			
+			
+		
+	
+		
+			
+			
+			
+		
+	
+	
+	
+		<li class="prev"><a href="/awesome-installation/posts/GMT.html" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>prev</a></li>
+	
+	<li><a href="/awesome-installation/"><i class="fa fa-archive"></i>Home</a></li>
+	
+		<li class="next"><a href="/awesome-installation/posts/CPS330.html" class="alignright next">next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+	
+</ul>
+</div>
+
+		</center>
+	  </div>
+	  
+	</div> <!-- col-md-9/col-md-12 -->
+	
+  </div><!-- row -->
+
+	</div>
+  </div>
+  <div class="container-narrow">
+	<footer> <p>
+  &copy; 2018 Nick
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-wixo/">Wixo</a>.    
+</p> </footer>
+  </div> <!-- container-narrow -->
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/awesome-installation/js/jquery.imagesloaded.min.js"></script>
+<script src="/awesome-installation/js/gallery.js"></script>
+<script src="/awesome-installation/js/bootstrap.min.js"></script>
+<script src="/awesome-installation/js/jquery.tableofcontents.min.js"></script>
+<script src="/awesome-installation/js/tocgenerator.min.js"></script>
+<script src="/awesome-installation/js/main.js"></script>
+<script src="/awesome-installation/js/search.js"></script> 
+
+
+
+
+<link rel="stylesheet" href="/awesome-installation/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/awesome-installation/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/awesome-installation/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>SCOTCH | Awesome Installation</title>
+  <meta name="author" content="Nick">
+  
+  <meta name="description" content="下载Scotch最新版本目前为 6.0.4， 下载地址为：https://gforge.inria.fr/projects/scotch
+安装依赖包安装scotch依赖于make工具以及lex和yacc，可以通过如下命令确定自己的系统是否包含上述工具。
+123$ make --version$ wh">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="SCOTCH"/>
+  <meta property="og:site_name" content="Awesome Installation"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  
+    <link rel="alternative" href="/awesome-installation/atom.xml" title="Awesome Installation" type="application/atom+xml">
+  
+  
+    <link href="/awesome-installation/favicon.png" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/awesome-installation/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/awesome-installation/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/awesome-installation/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/awesome-installation/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/awesome-installation/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/awesome-installation/css/responsive.css" media="screen" type="text/css">  
+  <link rel="stylesheet" href="/awesome-installation/css/sidenav.css" media="screen" type="text/css">  
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/awesome-installation/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+</head>
+
+<body id="body" data-spy="scroll" data-target=".toc">
+  <div class="container" id="container">
+	<div class="content">
+	  <div class="page-header">		
+  <h1><a class="brand" href="/awesome-installation/">Awesome Installation</a><span class="split"></span><span class="title">SCOTCH</span><span class="date" id="title-date"><i class="fa fa-clock-o"></i> 2017-05-22</span></h1>
+</div>		
+
+<div class="row page">
+  <!-- cols -->	
+  
+  <div class="col-xs-12 col-sm-3 col-md-3 toc"> 
+	<!-- toc -->
+<script type="text/javascript">
+		jQuery(document).ready(function() {
+ 		   generateWikiTOC('.note', '.toc',  2 , 2 );
+		});
+</script>
+  </div><!-- col-md-3 -->
+  
+  
+
+  
+  <div class="col-xs-12 col-sm-9 col-md-9 note">
+	
+
+	  <!-- content -->
+	  <h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>Scotch最新版本目前为 6.0.4， 下载地址为：<a href="https://gforge.inria.fr/projects/scotch" target="_blank" rel="noopener">https://gforge.inria.fr/projects/scotch</a></p>
+<h2 id="安装依赖包"><a href="#安装依赖包" class="headerlink" title="安装依赖包"></a>安装依赖包</h2><p>安装scotch依赖于make工具以及<code>lex</code>和<code>yacc</code>，可以通过如下命令确定自己的系统是否包含上述工具。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ make --version</span><br><span class="line">$ which lex</span><br><span class="line">$ which yacc</span><br></pre></td></tr></table></figure>
+<p>如果没有，可以通过apt包管理系统进行安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt install make</span><br><span class="line">$ sudo apt install flex   # install lex</span><br><span class="line">$ sudo apt install bison  # install yacc</span><br></pre></td></tr></table></figure>
+<h2 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h2><p>1.在src/目录下创建<code>Makefile.inc</code>文件。首先进入<code>src/</code>下，然后再进入<code>Make.inc/</code>子目录寻找适合自己系统的文件，如果您的系统是<code>x86_64</code>构架的，而且也安装了icc编译器，那么您可以选择<code>Makefile.inc.x86-64_pc_linux2.icc</code>文件。并回到src/目录下，建立软链接如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ln -s Make.inc/Makefile.inc.x86-64_pc_linux2.icc Makefile.inc</span><br></pre></td></tr></table></figure>
+<h2 id="安装-scotch"><a href="#安装-scotch" class="headerlink" title="安装 scotch"></a>安装 scotch</h2><p>一旦您建立了自己的Makefile.inc文件，那么安装scotch只是一个很简单的命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ make scotch          #将scotch安装在src/上一级目录下</span><br></pre></td></tr></table></figure>
+<h2 id="安装-ptscotch"><a href="#安装-ptscotch" class="headerlink" title="安装 ptscotch"></a>安装 ptscotch</h2><p>安装ptscotch首先需要MPI环境，因此需要安装MPICH或OPENMPI。安装MPICH的步骤<a href="mpich-install.html">点击这里</a>，安装OPENMPI的步骤可参考<a href="http://seisman.info/linux-environment-for-seismology-research.html" target="_blank" rel="noopener">SeisMan</a>。<br>有了MPI环境后, 需要对刚才新建的<code>Makefile.inc</code>进行修改，由于文件比较小，这里贴上我修改过的<code>Makefile.inc</code>文件。<br><figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">EXE		=</span><br><span class="line">LIB		= .a</span><br><span class="line">OBJ		= .o</span><br><span class="line"></span><br><span class="line">MAKE		= make</span><br><span class="line">AR		= ar</span><br><span class="line">ARFLAGS		= -ruv</span><br><span class="line">CAT		= cat</span><br><span class="line">CCS		= icc</span><br><span class="line">CCP		= mpicc</span><br><span class="line">CCD		= icc</span><br><span class="line">INC     = /opt/mpich3.2/<span class="keyword">include</span>  <span class="comment"># 新增此行， 根据自己MPICH的安装目录修改</span></span><br><span class="line">CFLAGS		= -O3 -I<span class="variable">$(INC)</span> -DCOMMON_FILE_COMPRESS_GZ -DCOMMON_PTHREAD -DCOMMON_RANDOM_FIXED_SEED -DSCOTCH_RENAME -DSCOTCH_PTHREAD  -DIDXSIZE64 <span class="comment"># 去掉了 -restrict 选项，不然编译会报错</span></span><br><span class="line">CLIBFLAGS	=</span><br><span class="line">LDFLAGS		= -lz -lm -lrt -pthread -lirc <span class="comment"># 新增 INTEL 的 irc 库文件，不然编译会报错</span></span><br><span class="line">CP		= cp</span><br><span class="line">LEX		= flex -Pscotchyy -olex.yy.c</span><br><span class="line">LN		= ln</span><br><span class="line">MKDIR		= mkdir</span><br><span class="line">MV		= mv</span><br><span class="line">RANLIB		= ranlib</span><br><span class="line">YACC		= bison -pscotchyy -y -b y</span><br></pre></td></tr></table></figure></p>
+<p>修改上述地方后，<code>$ make ptscotch</code> 进行ptscotch的安装。</p>
+<h2 id="检查是否安装成功"><a href="#检查是否安装成功" class="headerlink" title="检查是否安装成功"></a>检查是否安装成功</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ make check</span><br></pre></td></tr></table></figure>
+	  
+
+	  <div>
+  		<center>
+		  <div class="pagination">
+<ul class="pagination">
+	
+	
+	
+	
+	
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+			
+			
+		
+	
+		
+			
+			
+			
+		
+			
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+	
+	
+		<li class="prev disabled"><a><i class="fa fa-arrow-circle-o-left"></i>prev</a></li>
+	
+	<li><a href="/awesome-installation/"><i class="fa fa-archive"></i>Home</a></li>
+	
+		<li class="next"><a href="/awesome-installation/posts/mumps.html" class="alignright next">next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+	
+</ul>
+</div>
+
+		</center>
+	  </div>
+	  
+	</div> <!-- col-md-9/col-md-12 -->
+	
+  </div><!-- row -->
+
+	</div>
+  </div>
+  <div class="container-narrow">
+	<footer> <p>
+  &copy; 2018 Nick
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-wixo/">Wixo</a>.    
+</p> </footer>
+  </div> <!-- container-narrow -->
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/awesome-installation/js/jquery.imagesloaded.min.js"></script>
+<script src="/awesome-installation/js/gallery.js"></script>
+<script src="/awesome-installation/js/bootstrap.min.js"></script>
+<script src="/awesome-installation/js/jquery.tableofcontents.min.js"></script>
+<script src="/awesome-installation/js/tocgenerator.min.js"></script>
+<script src="/awesome-installation/js/main.js"></script>
+<script src="/awesome-installation/js/search.js"></script> 
+
+
+
+
+<link rel="stylesheet" href="/awesome-installation/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/awesome-installation/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/awesome-installation/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+
+</body>
+</html>

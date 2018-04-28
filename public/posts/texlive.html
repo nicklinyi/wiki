@@ -1,0 +1,237 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>TeXLive | Awesome Installation</title>
+  <meta name="author" content="Nick">
+  
+  <meta name="description" content="本文源于SeisMan,介绍如何在 Linux 下安装 TeXLive 2017。">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="TeXLive"/>
+  <meta property="og:site_name" content="Awesome Installation"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  
+    <link rel="alternative" href="/awesome-installation/atom.xml" title="Awesome Installation" type="application/atom+xml">
+  
+  
+    <link href="/awesome-installation/favicon.png" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/awesome-installation/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/awesome-installation/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/awesome-installation/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/awesome-installation/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/awesome-installation/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/awesome-installation/css/responsive.css" media="screen" type="text/css">  
+  <link rel="stylesheet" href="/awesome-installation/css/sidenav.css" media="screen" type="text/css">  
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/awesome-installation/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+</head>
+
+<body id="body" data-spy="scroll" data-target=".toc">
+  <div class="container" id="container">
+	<div class="content">
+	  <div class="page-header">		
+  <h1><a class="brand" href="/awesome-installation/">Awesome Installation</a><span class="split"></span><span class="title">TeXLive</span><span class="date" id="title-date"><i class="fa fa-clock-o"></i> 2013-07-11</span></h1>
+</div>		
+
+<div class="row page">
+  <!-- cols -->	
+  
+  <div class="col-xs-12 col-sm-3 col-md-3 toc"> 
+	<!-- toc -->
+<script type="text/javascript">
+		jQuery(document).ready(function() {
+ 		   generateWikiTOC('.note', '.toc',  2 , 2 );
+		});
+</script>
+  </div><!-- col-md-3 -->
+  
+  
+
+  
+  <div class="col-xs-12 col-sm-9 col-md-9 note">
+	
+
+	  <!-- content -->
+	  <p>本文源于<a href="http://seisman.info/install-texlive-under-linux.html" target="_blank" rel="noopener">SeisMan</a>,介绍如何在 Linux 下安装 TeXLive 2017。</p>
+<a id="more"></a>
+<h2 id="依赖包"><a href="#依赖包" class="headerlink" title="依赖包"></a>依赖包</h2><ul>
+<li>安装过程中需要调用 Perl 的模块 <code>Digest::MD5</code> 来检测 ISO 文件的完整性；</li>
+<li>升级过程中界面需要调用 Perl 的模块 <code>Tk</code> ；</li>
+</ul>
+<p>CentOS:</p>
+<pre><code>$ sudo yum install perl-Digest-MD5 perl-Tk
+</code></pre><p>Ubuntu:</p>
+<pre><code>$ sudo apt-get install libdigest-perl-md5-perl perl-tk
+</code></pre><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>下载地址：</p>
+<ul>
+<li>官方镜像: <a href="http://mirrors.ctan.org/systems/texlive/Images/texlive2017.iso" target="_blank" rel="noopener">texlive2017.iso</a></li>
+<li>USTC 镜像: <a href="http://mirrors.ustc.edu.cn/CTAN/systems/texlive/Images/texlive2017.iso" target="_blank" rel="noopener">texlive2017.iso</a></li>
+</ul>
+<p>Linux 下可以用 wget、axel，windows 下可以用迅雷，怎么快怎么来。</p>
+<h3 id="挂载-ISO-镜像"><a href="#挂载-ISO-镜像" class="headerlink" title="挂载 ISO 镜像"></a>挂载 ISO 镜像</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ su</span><br><span class="line"><span class="comment"># mount -o loop texlive2017.iso  /mnt/</span></span><br><span class="line"><span class="comment"># cd /mnt</span></span><br><span class="line"><span class="comment"># ./install-tl</span></span><br></pre></td></tr></table></figure>
+<p>出现选项后，输入 <code>I</code> 直接安装（也可以更改选项）。不出意外的话，5 分钟应该就 OK 了，<br>然后退出 root 用户。</p>
+<h3 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h3><p>在当前用户的 <code>~/.bashrc</code> 中加入如下语句：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># TeX Live 2017</span></span><br><span class="line"><span class="built_in">export</span> MANPATH=<span class="variable">$&#123;MANPATH&#125;</span>:/usr/<span class="built_in">local</span>/texlive/2017/texmf-dist/doc/man</span><br><span class="line"><span class="built_in">export</span> INFOPATH=<span class="variable">$&#123;INFOPATH&#125;</span>:/usr/<span class="built_in">local</span>/texlive/2017/texmf-dist/doc/info</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$&#123;PATH&#125;</span>:/usr/<span class="built_in">local</span>/texlive/2017/bin/x86_64-linux</span><br></pre></td></tr></table></figure>
+<h3 id="卸载-ISO-镜像"><a href="#卸载-ISO-镜像" class="headerlink" title="卸载 ISO 镜像"></a>卸载 ISO 镜像</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span></span><br><span class="line">$ sudo umount /mnt/</span><br></pre></td></tr></table></figure>
+<h2 id="更新-TeXLive"><a href="#更新-TeXLive" class="headerlink" title="更新 TeXLive"></a>更新 TeXLive</h2><p>可以使用如下命令更新 TeXLive 宏包：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ su</span><br><span class="line"><span class="comment"># 更新 TeXLive 包管理器 tlmgr</span></span><br><span class="line"><span class="comment"># tlmgr update --self</span></span><br><span class="line"><span class="comment"># 更新 TeXLive 的全部包</span></span><br><span class="line"><span class="comment"># tlmgr update --all</span></span><br></pre></td></tr></table></figure>
+<p>默认情况下，会自动搜索合适的镜像来更新，也可以使用 <code>--repository</code> 选项指定了要使用<br>哪一个 CTAN 镜像。</p>
+<p>比如 USTC 镜像:</p>
+<pre><code># tlmgr update --self --repository http://mirrors.ustc.edu.cn/CTAN/systems/texlive/tlnet/
+# tlmgr update --all --repository http://mirrors.ustc.edu.cn/CTAN/systems/texlive/tlnet/
+</code></pre><p>比如阿里云镜像:</p>
+<pre><code># tlmgr update --self --repository http://mirrors.aliyun.com/CTAN/systems/texlive/tlnet/
+# tlmgr update --all --repository http://mirrors.aliyun.com/CTAN/systems/texlive/tlnet/
+</code></pre><p>如果希望在图形界面下升级，可以使用如下命令调出 tlmgr 的中文图形界面：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ su</span><br><span class="line"><span class="comment"># tlmgr --gui --gui-lang zh_CN</span></span><br></pre></td></tr></table></figure>
+<h2 id="安装额外的字体"><a href="#安装额外的字体" class="headerlink" title="安装额外的字体"></a>安装额外的字体</h2><p>TeXLive 2017 在使用 xeLaTeX 处理中文时，有自己的默认字体。大多数 Linux 发行版下，<br>都使用自带的 Fandol 字体。</p>
+<p>如果想要使用 Windows 字体，可以将字体文件复制到 <code>~/.fonts</code> 目录下，并在 tex 源码中<br>指定字体选项即可。</p>
+<h2 id="修订历史"><a href="#修订历史" class="headerlink" title="修订历史"></a>修订历史</h2><ul>
+<li>2013-07-11：初稿；</li>
+<li>2014-07-06：修改为 TeXLive2014，并删除中文字体部分；</li>
+<li>2015-03-08：新增 “安装依赖”；</li>
+<li>2015-03-15：使用命令行更新包；</li>
+<li>2015-03-20：指定更新源以及 GUI 更新；</li>
+<li>2015-06-13：更新至 TeXLive 2015；</li>
+<li>2016-06-07：更新至 TeXLive 2016；</li>
+<li>2017-06-14：更新至 TeXLive 2017；</li>
+</ul>
+	  
+
+	  <div>
+  		<center>
+		  <div class="pagination">
+<ul class="pagination">
+	
+	
+	
+	
+	
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+			
+			
+		
+	
+	
+	
+		<li class="prev disabled"><a><i class="fa fa-arrow-circle-o-left"></i>prev</a></li>
+	
+	<li><a href="/awesome-installation/"><i class="fa fa-archive"></i>Home</a></li>
+	
+		<li class="next disabled"><a>next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+	
+</ul>
+</div>
+
+		</center>
+	  </div>
+	  
+	</div> <!-- col-md-9/col-md-12 -->
+	
+  </div><!-- row -->
+
+	</div>
+  </div>
+  <div class="container-narrow">
+	<footer> <p>
+  &copy; 2018 Nick
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-wixo/">Wixo</a>.    
+</p> </footer>
+  </div> <!-- container-narrow -->
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/awesome-installation/js/jquery.imagesloaded.min.js"></script>
+<script src="/awesome-installation/js/gallery.js"></script>
+<script src="/awesome-installation/js/bootstrap.min.js"></script>
+<script src="/awesome-installation/js/jquery.tableofcontents.min.js"></script>
+<script src="/awesome-installation/js/tocgenerator.min.js"></script>
+<script src="/awesome-installation/js/main.js"></script>
+<script src="/awesome-installation/js/search.js"></script> 
+
+
+
+
+<link rel="stylesheet" href="/awesome-installation/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/awesome-installation/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/awesome-installation/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+
+</body>
+</html>
