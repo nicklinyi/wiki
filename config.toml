@@ -1,4 +1,4 @@
-baseURL = "http://nickwhyy.top/wiki"
+baseURL = "http://nickwhyy.top/wiki/"
 languageCode = "zh-cmn-Hans"
 title = "Lloyd's Wiki"
 
@@ -15,15 +15,15 @@ pluralizeListTitles = false
     name = "Lloyd"
 
 [params]
-    since = 2018
+    since =
 
 [[menu.main]]
     name = "GitHub"
-    url = "https://github.com/nicklinyi/wiki.nickwhyy.top"
+    url = "https://github.com/nicklinyi/wiki"
     weight = 2
 
 [[menu.main]]
     name = "Edit on GitHub"
     identifier = 'edit_on_github'
-    url = "https://github.com/nicklinyi/wiki.nickwhyy.top/blob/master/content"
+    url = "https://github.com/nicklinyi/wiki/blob/master/content"
     weight = 3
