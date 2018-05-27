@@ -1,7 +1,7 @@
-# SeisMan's Wiki
+# My Wiki
 
-[![Build Status](https://travis-ci.org/seisman/wiki.svg?branch=master)](https://travis-ci.org/seisman/wiki)
+[![Build Status](https://travis-ci.org/seisman/wiki.svg?branch=master)](https://travis-ci.org/nicklinyi/wiki)
 
-Link: <http://wiki.seisman.info/>
 
 Powered by [Hugo](https://gohugo.io/).
+Theme by [hugo-theme-wiki](http://wiki.seisman.info/).
