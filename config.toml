@@ -1,0 +1,29 @@
+baseURL = "http://wiki.nickwhyy.top/"
+languageCode = "zh-cmn-Hans"
+title = "Lloyd's Wiki"
+
+theme = "hugo-theme-wiki"
+hasCJKLanguage = true
+pygmentsCodeFences = true
+pygmentsStyle = 'tango'
+
+disableKinds = ["RSS", "sitemap"]
+enableGitInfo = true
+pluralizeListTitles = false
+
+[author]
+    name = "Lloyd"
+
+[params]
+    since = 2018
+
+[[menu.main]]
+    name = "GitHub"
+    url = "https://github.com/nicklinyi/wiki.nickwhyy.top"
+    weight = 2
+
+[[menu.main]]
+    name = "Edit on GitHub"
+    identifier = 'edit_on_github'
+    url = "https://github.com/nicklinyi/wiki.nickwhyy.top/blob/master/content"
+    weight = 3

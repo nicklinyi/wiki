@@ -1,0 +1,15 @@
+<footer class="footer">
+    <div class="container">
+        &copy; {{ with .Site.Params.since }} {{ . }} - {{ end }}
+        <span itemprop="copyrightYear"> {{ now.Year }}</span>
+        <span class="with-love"><i class="fa fa-heart"></i></span>
+        <span class="author" itemprop="copyrightHolder">{{ .Site.Author.name }}</span>
+        <div class="powered-by">
+            {{ "Powered by [Hugo](https://gohugo.io)" | markdownify }}.
+            {{ if .GitInfo }}
+            Last revision: {{ .GitInfo.AuthorDate.Format "2006-01-02T15:04:05" }}
+            {{ end }}
+        </div>
+    </div>
+</footer>
+{{ partial "footer_js" . }}
