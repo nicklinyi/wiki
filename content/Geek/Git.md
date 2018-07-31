@@ -57,6 +57,7 @@ $ git push origin --delete branchName # 删除远程分支 origin/branchName
 $ git submodule add git:@github.com/xyz/xyz.git xyz-local
 $ git submodule init
 $ git submodule update
+$ git submodule update --remote #从远程分支
 ```
 
 ## tag
