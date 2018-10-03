@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="generator" content="Hugo 0.48" />
+    <meta name="author" content="Lloyd">
+    
+    <title>
+    
+        Git | Lloyd&#39;s Wiki
+    
+    </title>
+
+    
+    <link href="https://cdn.bootcss.com/bootswatch/3.3.7/spacelab/bootstrap.min.css" rel="stylesheet">
+    <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <link href="//cdn.bootcss.com/featherlight/1.5.0/featherlight.min.css" rel="stylesheet">
+    <link href="https://wiki.nickwhyy.top/css/style.css" rel="stylesheet">
+
+    
+</head>
+
+
+<body>
+    <div class="container">
+        <nav class="navbar navbar-default ">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand " href="/">Lloyd&#39;s Wiki</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right ">
+        
+        
+        
+        <li class="nav-item"><a href="https://github.com/nicklinyi/wiki">GitHub</a></li>
+        
+        
+        
+        <li> <a href="https://github.com/nicklinyi/wiki/blob/master/content/Geek/Git.md" target="blank">Edit on GitHub</a></li>
+        
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+        
+<ul class="breadcrumb">
+  <li><a href="/">Home</a></li>
+  
+  
+  
+  
+  
+  <li><a href='https://wiki.nickwhyy.top/geek'>geek</a></li>
+  
+  
+  
+  
+  
+  <li><a href='https://wiki.nickwhyy.top/geek/git'>Git</a></li>
+  
+  
+  
+  
+</ul>
+
+
+        
+<h1>Git</h1>
+<div class="row">
+  <div id="toc" class="well col-md-3 col-sm-4">
+  <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#删除文件">删除文件</a></li>
+<li><a href="#branch">branch</a></li>
+<li><a href="#submodule">submodule</a></li>
+<li><a href="#tag">tag</a></li>
+<li><a href="#生成秘钥">生成秘钥</a></li>
+<li><a href="#reference">Reference</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+  <div class="col-md-9">
+  
+
+<pre><code>$ git log #查看commit的历史记录,方便的回退到任意版本
+</code></pre>
+
+<pre><code>$ git reset --hard 322455  #  commit id
+# 这条语句非常有用，比如在一个正确的程序上修改，结果运行发现运行结果
+# 出错，这时候通过git log 查看上一次commit的id，然后采用这条命令就可以将整个
+# 项目下的源文件重新退回到上一次的正确结果上。而因为修改地结果也可以通过git
+# reflog来查询出来，如果想重新回到之前修改的结果上的话
+</code></pre>
+
+<h2 id="删除文件">删除文件</h2>
+
+<pre><code>$ git rm 1.txt
+</code></pre>
+
+<h2 id="branch">branch</h2>
+
+<pre><code>$ git branch -v  #查看分支
+$ git branch -a  #查看全部分支（包括远程分支）
+$ git check -b new # 创建new分支，并切换至该分支
+</code></pre>
+
+<pre><code>$ git reflog  #查看历史命令，用于查询回退版本后，找不到未来版本的commit id
+ea34578 HEAD@{0}: reset: moving to HEAD^
+3628164 HEAD@{1}: commit: append GPL
+ea34578 HEAD@{2}: commit: add distributed
+cb926e7 HEAD@{3}: commit (initial): wrote a readme file
+</code></pre>
+
+<pre><code>$ git branch new-branch-name # 创建新的名为 new-branch-name 的分支
+# 这条语句的意义有：
+# 1. 用于发行一个release版本，创建一个release版本的分支，用于发行。
+# 2. 用于develop，一个master上用于存放正确的代码，develop用于进行测试，测试
+# 完后将正确的结果推回至master
+
+</code></pre>
+
+<pre><code>$ git checkout new-branch-name # 切换至名为 new-branch-name 的分支
+</code></pre>
+
+<pre><code>$ git branch -a # 查看本地分支和远程分支
+$ git branch -d branchName # 删除本地分支branchName，前提条件是该分支已merge到其他分支
+$ git branch -D branchName # 强制删除本地分支branchName
+$ git push origin --delete branchName # 删除远程分支 origin/branchName
+</code></pre>
+
+<h2 id="submodule">submodule</h2>
+
+<pre><code>$ git submodule add git:@github.com/xyz/xyz.git xyz-local
+$ git submodule init
+$ git submodule update
+$ git submodule update --remote #从远程分支
+</code></pre>
+
+<h2 id="tag">tag</h2>
+
+<pre><code>$ git tag -a v0.1 -m &quot;version 0.1&quot;   # 创建 annotation tag
+$ git push origin --tags  # 向远程分支推送 tag
+$ git tag ## 查看tag
+</code></pre>
+
+<h2 id="生成秘钥">生成秘钥</h2>
+
+<ol>
+<li>From the terminal, enter <code>ssh-keygen</code> at the command line.The command prompts you for a file to save the key in:
+<code>
+$ ssh-keygen 
+Generating public/private rsa key pair.
+Enter file in which to save the key (/Users/emmap1/.ssh/id_rsa):
+</code></li>
+<li>Press the Enter or Return key to accept the default location.</li>
+</ol>
+
+<blockquote>
+<p>To create a key with a name or path other than the default, specify the full path to the key. For example, to create a key called my-new-ssh-key
+, enter a path like the one shown at the prompt:</p>
+
+<pre><code>$ ssh-keygen 
+Generating public/private rsa key pair.
+Enter file in which to save the key (/Users/emmap1/.ssh/id_rsa): /Users/emmap1/.ssh/my-new-ssh-key
+</code></pre>
+</blockquote>
+
+<ol>
+<li>Enter and re-enter a passphrase when prompted.The command creates your default identity with its public and private keys. The whole interaction will look similar to the following:
+<code>
+$ ssh-keygen 
+Generating public/private rsa key pair.
+Enter file in which to save the key (/Users/emmap1/.ssh/id_rsa):
+Created directory '/Users/emmap1/.ssh'.
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /Users/emmap1/.ssh/id_rsa.
+Your public key has been saved in /Users/emmap1/.ssh/id_rsa.pub.
+The key fingerprint is:4c:80:61:2c:00:3f:9d:dc:08:41:2e:c0:cf:b9:17:69
+[emmap1@myhost.local](mailto:emmap1@myhost.local) 
+The key's randomart image is:
++--[ RSA 2048]----+
+|*o+ooo.          |
+|.+.=o+ .         |
+|. *.* o .        |
+| . = E o         |
+|    o . S        |
+|   . .           |
+|     .           |
+|                 |
+|                 |
++-----------------+
+</code></li>
+
+<li><p>List the contents of ~/.ssh to view the key files.</p>
+
+<pre><code>$ ls ~/.ssh id_rsa id_rsa.pub
+</code></pre>
+
+<p>The command displays two files, one for the public key (for example <code>id_rsa.pub</code>) and one for the private key (for example,<code>id_rsa</code>
+).</p></li>
+
+<li><p>采用免密码提交的方式需要将<code>.git/config</code>文件中<code>url</code>设为ssh的模式。</p>
+
+<pre><code>url = git@github.com:nick/projet-name.git
+</code></pre></li>
+</ol>
+
+<h2 id="reference">Reference</h2>
+
+<p><a href="https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#platform-linux">https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#platform-linux</a></p>
+
+<p><a href="https://git-scm.com/book/en/v2">Git Pro</a></p>
+
+  </div>
+</div>
+
+
+        <footer class="footer">
+    <div class="container">
+        &copy; 
+        <span itemprop="copyrightYear"> 2018</span>
+        <span class="with-love"><i class="fa fa-heart"></i></span>
+        <span class="author" itemprop="copyrightHolder">Lloyd</span>
+        <div class="powered-by">
+            Powered by <a href="https://gohugo.io">Hugo</a>.
+            
+            Last revision: 2018-07-31T09:07:33
+            
+        </div>
+    </div>
+</footer>
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://wiki.nickwhyy.top/js/script.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      displayMath: [['$$','$$'], ['\[','\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    }
+  });
+</script>
+
+<script type="text/javascript"
+    src="https://cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+    </div>
+</body>
+</html>

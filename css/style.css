@@ -1,0 +1,22 @@
+img {
+    max-width: 100%;
+}
+
+#toc{
+    float: right;
+}
+
+#toc ul {
+    list-style-type: none;
+}
+
+#toc ul ul {
+    list-style-type: disc;
+}
+
+.footer {
+    color: #999;
+    min-height: 50px;
+    text-align: center;
+    margin: 20px auto;
+}
