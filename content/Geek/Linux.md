@@ -26,4 +26,9 @@ $ fc-list :lang=zh-cn # 查询系统中的中文字体
 $ rsync -au --delete --progress folderSrc  folderDest # 文件同步，folderSrc源，folderDest 目标
 ```
 
+curl 下载文件
+```
+curl -o output.txt http://aaaa/output.txt
+```
+
 
